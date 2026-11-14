@@ -1,0 +1,49 @@
+
+CHAR DHAM YATRA PLANNER (A* search)
+Start: Haridwar | Start date: 2027-05-10 | Max driving: 9.0 h/day | Risk sensitivity: 1.0 | Round trip
+NOTE: landslide-risk values and cost weights are ASSUMPTIONS in data/graph.json, not official data.
+
+A* ITINERARY  (dham order: Badrinath > Kedarnath > Gangotri > Yamunotri)
+Day  Date         Route                                                        Drive (h)  Notes                                                                                        
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1    10 May 2027  Haridwar > Rishikesh > Devprayag > Srinagar > Rudraprayag    5.5        Night halt at Rudraprayag                                                                    
+2    11 May 2027  Rudraprayag > Karnaprayag > Chamoli > Joshimath > Badrinath  6.0        Badrinath darshan; night halt at Badrinath                                                   
+3    12 May 2027  -                                                            0.0        BUFFER DAY at Badrinath: slack for the Joshimath-Badrinath stretch (assumed block chance 15%)
+4    13 May 2027  Badrinath > Joshimath > Chamoli                              4.0        Night halt at Chamoli                                                                        
+5    14 May 2027  Chamoli > Guptkashi > Sonprayag > Gaurikund                  6.5        Kedarnath darshan; night halt at Gaurikund                                                   
+6    15 May 2027  -                                                            0.0        Kedarnath trek / darshan day (base: Gaurikund)                                               
+7    16 May 2027  -                                                            0.0        Kedarnath trek / darshan day (base: Gaurikund)                                               
+8    17 May 2027  Gaurikund > Sonprayag > Guptkashi > Tilwara > Ghansali       6.5        Night halt at Ghansali                                                                       
+9    18 May 2027  Ghansali > Uttarkashi > Harsil > Gangotri                    7.5        Gangotri darshan; night halt at Gangotri                                                     
+10   19 May 2027  Gangotri > Harsil > Uttarkashi > Dharasu                     5.0        Night halt at Dharasu                                                                        
+11   20 May 2027  Dharasu > Barkot > Janki Chatti                              4.0        Yamunotri darshan; night halt at Janki Chatti                                                
+12   21 May 2027  -                                                            0.0        Yamunotri trek / darshan day (base: Janki Chatti)                                            
+13   22 May 2027  Janki Chatti > Barkot                                        2.0        Night halt at Barkot                                                                         
+14   23 May 2027  Barkot > Dehradun > Haridwar                                 6.5                                                                                                     
+
+Cost breakdown (effective hours): driving 53.5, expected delay 42.87, near night-ban 0.0, fatigue 1.5, overnights 13.0, buffer days 2.0
+
+COMPARISON
+Algorithm            Nodes expanded  Runtime (ms)  Plan cost  Days  Buffer days  Expected delay days
+----------------------------------------------------------------------------------------------------
+A*                   81524           1774.0        112.87     14    1            1.78               
+Dijkstra             149734          2962.1        112.87     14    1            1.78               
+BFS                  167859          2446.5        122.47     14    3            1.68               
+Naive shortest-road  34              0.2           119.18     11    0            2.07               
+
+NAIVE ITINERARY  (dham order: Yamunotri > Gangotri > Kedarnath > Badrinath)
+Day  Date         Route                                                                                          Drive (h)  Notes                                            
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1    10 May 2027  Haridwar > Dehradun > Barkot > Janki Chatti                                                    8.5        Yamunotri darshan; night halt at Janki Chatti    
+2    11 May 2027  -                                                                                              0.0        Yamunotri trek / darshan day (base: Janki Chatti)
+3    12 May 2027  Janki Chatti > Barkot > Dharasu > Uttarkashi > Harsil > Gangotri                               9.0        Gangotri darshan; night halt at Gangotri         
+4    13 May 2027  Gangotri > Harsil > Uttarkashi > Ghansali                                                      7.5        Night halt at Ghansali                           
+5    14 May 2027  Ghansali > Tilwara > Guptkashi > Sonprayag > Gaurikund                                         6.5        Kedarnath darshan; night halt at Gaurikund       
+6    15 May 2027  -                                                                                              0.0        Kedarnath trek / darshan day (base: Gaurikund)   
+7    16 May 2027  -                                                                                              0.0        Kedarnath trek / darshan day (base: Gaurikund)   
+8    17 May 2027  Gaurikund > Sonprayag > Guptkashi > Tilwara > Rudraprayag > Karnaprayag > Chamoli > Joshimath  8.0        Night halt at Joshimath                          
+9    18 May 2027  Joshimath > Badrinath                                                                          2.0        Badrinath darshan; night halt at Badrinath       
+10   19 May 2027  Badrinath > Joshimath > Chamoli > Karnaprayag > Rudraprayag > Srinagar > Devprayag             8.0        Night halt at Devprayag                          
+11   20 May 2027  Devprayag > Rishikesh > Haridwar                                                               3.5                                                         
+
+Saved: outputs/route_map.png, outputs/route_map_naive.png, outputs/comparison.png, outputs/results.json

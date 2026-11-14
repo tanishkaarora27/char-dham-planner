@@ -1,0 +1,286 @@
+{
+  "settings": {
+    "start": "Haridwar",
+    "start_date": "2027-05-10",
+    "max_hours_per_day": 9.0,
+    "risk_sensitivity": 1.0,
+    "round_trip": true
+  },
+  "comparison": {
+    "A*": {
+      "found": true,
+      "nodes_expanded": 81524,
+      "runtime_ms": 4048.7,
+      "plan_cost": 112.87,
+      "total_days": 14,
+      "drive_hours": 53.5,
+      "buffer_days": 1,
+      "expected_delay_days": 1.78,
+      "order": [
+        "Badrinath",
+        "Kedarnath",
+        "Gangotri",
+        "Yamunotri"
+      ],
+      "cost_parts": {
+        "driving": 53.5,
+        "expected delay": 42.87,
+        "near night-ban": 0.0,
+        "fatigue": 1.5,
+        "overnights": 13.0,
+        "buffer days": 2.0
+      }
+    },
+    "Dijkstra": {
+      "found": true,
+      "nodes_expanded": 149734,
+      "runtime_ms": 5881.8,
+      "plan_cost": 112.87,
+      "total_days": 14,
+      "drive_hours": 53.5,
+      "buffer_days": 1,
+      "expected_delay_days": 1.78,
+      "order": [
+        "Badrinath",
+        "Kedarnath",
+        "Gangotri",
+        "Yamunotri"
+      ],
+      "cost_parts": {
+        "driving": 53.5,
+        "expected delay": 42.87,
+        "near night-ban": 0.0,
+        "fatigue": 1.5,
+        "overnights": 13.0,
+        "buffer days": 2.0
+      }
+    },
+    "BFS": {
+      "found": true,
+      "nodes_expanded": 167859,
+      "runtime_ms": 4778.0,
+      "plan_cost": 122.47,
+      "total_days": 14,
+      "drive_hours": 55.5,
+      "buffer_days": 3,
+      "expected_delay_days": 1.68,
+      "order": [
+        "Badrinath",
+        "Kedarnath",
+        "Gangotri",
+        "Yamunotri"
+      ],
+      "cost_parts": {
+        "driving": 55.5,
+        "expected delay": 40.47,
+        "near night-ban": 1.25,
+        "fatigue": 6.25,
+        "overnights": 13.0,
+        "buffer days": 6.0
+      }
+    },
+    "Naive shortest-road": {
+      "found": true,
+      "nodes_expanded": 34,
+      "runtime_ms": 0.3,
+      "plan_cost": 119.18,
+      "total_days": 11,
+      "drive_hours": 53.0,
+      "buffer_days": 0,
+      "expected_delay_days": 2.07,
+      "order": [
+        "Yamunotri",
+        "Gangotri",
+        "Kedarnath",
+        "Badrinath"
+      ],
+      "cost_parts": {
+        "driving": 53.0,
+        "expected delay": 49.68,
+        "near night-ban": 0.75,
+        "fatigue": 5.75,
+        "overnights": 10.0,
+        "buffer days": 0.0
+      }
+    }
+  },
+  "a_star_itinerary": [
+    {
+      "Day": 1,
+      "Date": "10 May 2027",
+      "Route": "Haridwar > Rishikesh > Devprayag > Srinagar > Rudraprayag",
+      "Drive (h)": 5.5,
+      "Notes": "Night halt at Rudraprayag"
+    },
+    {
+      "Day": 2,
+      "Date": "11 May 2027",
+      "Route": "Rudraprayag > Karnaprayag > Chamoli > Joshimath > Badrinath",
+      "Drive (h)": 6.0,
+      "Notes": "Badrinath darshan; night halt at Badrinath"
+    },
+    {
+      "Day": 3,
+      "Date": "12 May 2027",
+      "Route": "-",
+      "Drive (h)": 0.0,
+      "Notes": "BUFFER DAY at Badrinath: slack for the Joshimath-Badrinath stretch (assumed block chance 15%)"
+    },
+    {
+      "Day": 4,
+      "Date": "13 May 2027",
+      "Route": "Badrinath > Joshimath > Chamoli",
+      "Drive (h)": 4.0,
+      "Notes": "Night halt at Chamoli"
+    },
+    {
+      "Day": 5,
+      "Date": "14 May 2027",
+      "Route": "Chamoli > Guptkashi > Sonprayag > Gaurikund",
+      "Drive (h)": 6.5,
+      "Notes": "Kedarnath darshan; night halt at Gaurikund"
+    },
+    {
+      "Day": 6,
+      "Date": "15 May 2027",
+      "Route": "-",
+      "Drive (h)": 0.0,
+      "Notes": "Kedarnath trek / darshan day (base: Gaurikund)"
+    },
+    {
+      "Day": 7,
+      "Date": "16 May 2027",
+      "Route": "-",
+      "Drive (h)": 0.0,
+      "Notes": "Kedarnath trek / darshan day (base: Gaurikund)"
+    },
+    {
+      "Day": 8,
+      "Date": "17 May 2027",
+      "Route": "Gaurikund > Sonprayag > Guptkashi > Tilwara > Ghansali",
+      "Drive (h)": 6.5,
+      "Notes": "Night halt at Ghansali"
+    },
+    {
+      "Day": 9,
+      "Date": "18 May 2027",
+      "Route": "Ghansali > Uttarkashi > Harsil > Gangotri",
+      "Drive (h)": 7.5,
+      "Notes": "Gangotri darshan; night halt at Gangotri"
+    },
+    {
+      "Day": 10,
+      "Date": "19 May 2027",
+      "Route": "Gangotri > Harsil > Uttarkashi > Dharasu",
+      "Drive (h)": 5.0,
+      "Notes": "Night halt at Dharasu"
+    },
+    {
+      "Day": 11,
+      "Date": "20 May 2027",
+      "Route": "Dharasu > Barkot > Janki Chatti",
+      "Drive (h)": 4.0,
+      "Notes": "Yamunotri darshan; night halt at Janki Chatti"
+    },
+    {
+      "Day": 12,
+      "Date": "21 May 2027",
+      "Route": "-",
+      "Drive (h)": 0.0,
+      "Notes": "Yamunotri trek / darshan day (base: Janki Chatti)"
+    },
+    {
+      "Day": 13,
+      "Date": "22 May 2027",
+      "Route": "Janki Chatti > Barkot",
+      "Drive (h)": 2.0,
+      "Notes": "Night halt at Barkot"
+    },
+    {
+      "Day": 14,
+      "Date": "23 May 2027",
+      "Route": "Barkot > Dehradun > Haridwar",
+      "Drive (h)": 6.5,
+      "Notes": ""
+    }
+  ],
+  "naive_itinerary": [
+    {
+      "Day": 1,
+      "Date": "10 May 2027",
+      "Route": "Haridwar > Dehradun > Barkot > Janki Chatti",
+      "Drive (h)": 8.5,
+      "Notes": "Yamunotri darshan; night halt at Janki Chatti"
+    },
+    {
+      "Day": 2,
+      "Date": "11 May 2027",
+      "Route": "-",
+      "Drive (h)": 0.0,
+      "Notes": "Yamunotri trek / darshan day (base: Janki Chatti)"
+    },
+    {
+      "Day": 3,
+      "Date": "12 May 2027",
+      "Route": "Janki Chatti > Barkot > Dharasu > Uttarkashi > Harsil > Gangotri",
+      "Drive (h)": 9.0,
+      "Notes": "Gangotri darshan; night halt at Gangotri"
+    },
+    {
+      "Day": 4,
+      "Date": "13 May 2027",
+      "Route": "Gangotri > Harsil > Uttarkashi > Ghansali",
+      "Drive (h)": 7.5,
+      "Notes": "Night halt at Ghansali"
+    },
+    {
+      "Day": 5,
+      "Date": "14 May 2027",
+      "Route": "Ghansali > Tilwara > Guptkashi > Sonprayag > Gaurikund",
+      "Drive (h)": 6.5,
+      "Notes": "Kedarnath darshan; night halt at Gaurikund"
+    },
+    {
+      "Day": 6,
+      "Date": "15 May 2027",
+      "Route": "-",
+      "Drive (h)": 0.0,
+      "Notes": "Kedarnath trek / darshan day (base: Gaurikund)"
+    },
+    {
+      "Day": 7,
+      "Date": "16 May 2027",
+      "Route": "-",
+      "Drive (h)": 0.0,
+      "Notes": "Kedarnath trek / darshan day (base: Gaurikund)"
+    },
+    {
+      "Day": 8,
+      "Date": "17 May 2027",
+      "Route": "Gaurikund > Sonprayag > Guptkashi > Tilwara > Rudraprayag > Karnaprayag > Chamoli > Joshimath",
+      "Drive (h)": 8.0,
+      "Notes": "Night halt at Joshimath"
+    },
+    {
+      "Day": 9,
+      "Date": "18 May 2027",
+      "Route": "Joshimath > Badrinath",
+      "Drive (h)": 2.0,
+      "Notes": "Badrinath darshan; night halt at Badrinath"
+    },
+    {
+      "Day": 10,
+      "Date": "19 May 2027",
+      "Route": "Badrinath > Joshimath > Chamoli > Karnaprayag > Rudraprayag > Srinagar > Devprayag",
+      "Drive (h)": 8.0,
+      "Notes": "Night halt at Devprayag"
+    },
+    {
+      "Day": 11,
+      "Date": "20 May 2027",
+      "Route": "Devprayag > Rishikesh > Haridwar",
+      "Drive (h)": 3.5,
+      "Notes": ""
+    }
+  ]
+}
